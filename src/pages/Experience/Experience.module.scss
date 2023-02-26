@@ -25,14 +25,15 @@
       background: var(--green-dark);
       padding: 16px 151px 60px 60px;
 
-      .title{
+      .title {
         color: var(--green);
         white-space: nowrap;
         text-shadow: var(--text-shadow);
         font-size: var(--font-size-title);
 
       }
-      .description{
+
+      .description {
         text-align: center;
         color: var(--white);
         text-shadow: var(--text-shadow);
@@ -54,6 +55,7 @@
         box-shadow: 0 0 2px var(--green-dark);
         transform: translateX(-100px);
       }
+
       .dust {
         right: 0;
         bottom: 0;
@@ -64,8 +66,8 @@
         object-fit: cover;
         position: absolute;
 
-        &.active{
-          animation: closed 0.5s ease-in-out ;
+        &.active {
+          animation: closed 0.5s ease-in-out;
           transition: all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1)
         }
       }
@@ -100,29 +102,25 @@
 @media screen and (max-width: 1200px) {
   .container {
     min-height: inherit;
+
     .card {
       height: 170px;
+
       .left {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding:0 ;
-        .title{
+        padding: 0;
+
+        .title {
           font-size: var(--fz-title900);
-          padding-right:35px;
+          padding-right: 35px;
         }
-        .description{
+
+        .description {
           word-break: break-all;
           font-size: var(--fz-medium1200);
           padding: 0 90px 0 35px;
-        }
-      }
-      .rightWrapper {
-        .right {
-        }
-        .dust {
-          &.active{
-          }
         }
       }
     }
@@ -133,20 +131,14 @@
   .container {
     .card {
       .left {
-        .title{
+        .title {
           font-size: var(--fz-title900);
-          padding-right:15px;
+          padding-right: 15px;
         }
-        .description{
+
+        .description {
           font-size: var(--fz-medium800);
           word-break: break-all;
-        }
-      }
-      .rightWrapper {
-        .right {}
-        .dust {
-          &.active{
-          }
         }
       }
     }
@@ -157,13 +149,15 @@
   .container {
     .card {
       height: 140px;
+
       .left {
-        .title{
+        .title {
           font-size: var(--fz-title800);
-          padding-right:15px;
+          padding-right: 15px;
 
         }
-        .description{
+
+        .description {
           padding: 0 65px 0 35px;
         }
       }
@@ -175,21 +169,16 @@
   .container {
     .card {
       height: 130px;
+
       .left {
-        .title{
+        .title {
           font-size: var(--fz-title650);
-          padding-right:15px;
+          padding-right: 15px;
         }
-        .description{
+
+        .description {
           font-size: var(--fz-medium650);
           line-height: 16px;
-        }
-      }
-      .rightWrapper {
-        .right {}
-        .dust {
-          &.active{
-          }
         }
       }
     }
@@ -200,21 +189,16 @@
   .container {
     .card {
       height: 100px;
+
       .left {
-        .title{
+        .title {
           font-size: 24px;
-          padding-right:15px;
+          padding-right: 15px;
         }
-        .description{
+
+        .description {
           font-size: 14px;
           line-height: 16px;
-        }
-      }
-      .rightWrapper {
-        .right {}
-        .dust {
-          &.active{
-          }
         }
       }
     }
@@ -225,22 +209,17 @@
   .container {
     .card {
       height: 80px;
+
       .left {
-        .title{
+        .title {
           font-size: 18px;
-          padding-right:15px;
+          padding-right: 15px;
         }
-        .description{
+
+        .description {
           font-size: 10px;
           line-height: 16px;
           padding: 0 50px 0 35px;
-        }
-      }
-      .rightWrapper {
-        .right {}
-        .dust {
-          &.active{
-          }
         }
       }
     }
@@ -251,42 +230,26 @@
   .container {
     .card {
       height: 80px;
+
       .left {
-        transform: none!important;
+        transform: none !important;
         width: 100%;
-        .title{
+
+        .title {
           font-size: 18px;
-          padding-right:15px;
+          padding-right: 15px;
         }
-        .description{
+
+        .description {
           font-size: 10px;
           line-height: 16px;
           padding: 0 50px 0 35px;
         }
       }
+
       .rightWrapper {
         display: none;
       }
     }
   }
 }
-
-
-
-//@media screen and (max-width: 1200px) {
-//  .container {
-//    .card {
-//      .left {
-//        .title{}
-//        .description{}
-//      }
-//      .rightWrapper {
-//        .right {}
-//        .dust {
-//          &.active{
-//          }
-//        }
-//      }
-//    }
-//  }
-//}

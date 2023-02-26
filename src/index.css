@@ -34,21 +34,6 @@ code {
 }
 
 :root {
-    --green: #14e956;
-    --green-dark: #479087;
-    --white: #ffffff;
-    --grey-bg: #262626;
-    --font-size-title: 70px;
-    --font-size-medium: 32px;
-    --font-size-default: 16px;
-    --font-family: 'Cyborg', sans-serif;
-    --cursor-pointer: url('./icons/cursore-pointer.svg') 4 4, auto;
-    --cursor-default: url('./icons/cursore-default.svg') 4 4, auto;
-    --linear-gradient: linear-gradient(109.6deg, rgba(0, 0, 0, 1) 11.2%, rgb(7, 73, 80) 91.1%);
-    --radial-gradient: radial-gradient(circle 263px at 100.2% 3%, rgba(12, 85, 141, 1) 31.1%, rgba(205, 181, 93, 1) 36.4%, rgba(244, 102, 90, 1) 50.9%, rgba(199, 206, 187, 1) 60.7%, rgba(249, 140, 69, 1) 72.5%, rgba(12, 73, 116, 1) 72.6%);
-    --linear-gradient-reverse: linear-gradient(109.6deg, rgb(7, 73, 80) 11.2%, rgba(0, 0, 0, 1) 91.1%);
-    --text-shadow: 3px 3px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
-    --text-shadow-small-screens: 1px 1px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
     --fz-title1200: 60px;
     --fz-medium1200: 24px;
     --fz-title900: 40px;
@@ -60,7 +45,21 @@ code {
     --fz-title650: 24px;
     --fz-medium650: 14px;
     --fz-default650: 10px;
-
+    --font-size-title: 70px;
+    --font-size-medium: 32px;
+    --font-size-default: 16px;
+    --green: #14e956;
+    --green-dark: #479087;
+    --white: #ffffff;
+    --grey-bg: #262626;
+    --font-family: 'Cyborg', sans-serif;
+    --cursor-pointer: url('./icons/cursore-pointer.svg') 4 4, auto;
+    --cursor-default: url('./icons/cursore-default.svg') 4 4, auto;
+    --linear-gradient: linear-gradient(109.6deg, rgba(0, 0, 0, 1) 11.2%, rgb(7, 73, 80) 91.1%);
+    --radial-gradient: radial-gradient(circle 263px at 100.2% 3%, rgba(12, 85, 141, 1) 31.1%, rgba(205, 181, 93, 1) 36.4%, rgba(244, 102, 90, 1) 50.9%, rgba(199, 206, 187, 1) 60.7%, rgba(249, 140, 69, 1) 72.5%, rgba(12, 73, 116, 1) 72.6%);
+    --linear-gradient-reverse: linear-gradient(109.6deg, rgb(7, 73, 80) 11.2%, rgba(0, 0, 0, 1) 91.1%);
+    --text-shadow: 3px 3px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
+    --text-shadow-small-screens: 1px 1px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
 }
 
 

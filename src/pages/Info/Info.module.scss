@@ -176,9 +176,6 @@
       span:not(.title) {
         font-size: var(--fz-default900);
         line-height: 16px;
-
-        a {
-        }
       }
 
       .zigZag {
@@ -229,12 +226,6 @@
         line-height: 20px;
 
       }
-
-      .zigZag {
-      }
-
-      .dotsLine {
-      }
     }
 
     .sectionTwo {
@@ -255,23 +246,3 @@
     }
   }
 }
-
-//@media screen and (max-width: 1200px) {
-//  .container {
-//    .sectionOne {
-//      .title {}
-//      span:not(.title) {
-//        a {}
-//      }
-//      .zigZag{}
-//      .dotsLine{}
-//    }
-//
-//    .sectionTwo {
-//      .title {}
-//      span:not(.title) {}
-//      .dots{}
-//      .dotsLine{}
-//    }
-//  }
-//}

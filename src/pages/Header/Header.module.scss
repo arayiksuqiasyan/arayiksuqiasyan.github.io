@@ -3,6 +3,7 @@
   z-index: 3;
   position: fixed;
   padding: 50px 80px;
+
   .appNavBar {
     display: flex;
     align-items: center;
@@ -20,12 +21,14 @@
     .navMenu {
       position: relative;
 
-      .zombieWrapper{
+      .zombieWrapper {
         display: flex;
         align-items: flex-start;
-        div{
+
+        div {
           margin-right: 8px;
-          svg{
+
+          svg {
             width: 22px;
             height: 22px;
           }
@@ -73,7 +76,7 @@
           opacity: 1;
           transform: scale(1);
 
-          a{
+          a {
             font-weight: 400;
             animation: textModal 0.4s linear;
           }
@@ -94,7 +97,7 @@
           cursor: var(--cursor-pointer);
           text-shadow: var(--text-shadow);
           transform: translateX(-10px) scale(1);
-          transition: 0.3s all cubic-bezier(.49,.66,.99,.27);
+          transition: 0.3s all cubic-bezier(.49, .66, .99, .27);
 
           &:hover {
             color: var(--white);
@@ -120,41 +123,14 @@
 }
 
 @keyframes textModal {
-  0%{
+  0% {
     transform: translateY(100%) translateX(-10px);
   }
-  50%{
+  50% {
     transform: translateY(50%) translateX(-10px);
   }
-  100%{
+  100% {
     transform: translateY(0) translateX(-10px);
-  }
-
-}
-
-@media screen and (max-width: 1200px) {
-  .container {
-    .appNavBar {
-      .navLogo {
-        .icon {}
-      }
-      .navMenu {
-        .zombieWrapper{
-          div{
-            svg{}
-          }
-        }
-        .iconWrapper {}
-        .settings {}
-        .modal {
-          &.open {
-            a{}
-          }
-          a {}
-        }
-      }
-
-    }
   }
 
 }
@@ -162,31 +138,28 @@
 @media screen and (max-width: 431px) {
   .container {
     padding: 16px 20px;
+
     .appNavBar {
       .navLogo {
-        .icon {}
-      }
-      .navMenu {
-        .zombieWrapper{
-          div{
-            svg{}
-          }
+        .icon {
+          font-size: 30px;
         }
-        .iconWrapper {}
+      }
+
+      .navMenu {
         .settings {
-          font-size: 8px;
+          font-size: 16px;
           margin-right: -8px;
           margin-top: -6px;
           text-shadow: var(--text-shadow-small-screens);
-          &:before{
-
-          }
         }
+
         .modal {
           width: 160px;
           padding: 30px 8px 16px;
+
           &.open {
-            a{
+            a {
               font-size: 10px;
               width: 100%;
               height: fit-content;
@@ -194,6 +167,7 @@
               padding: 8px;
             }
           }
+
           a {
             text-shadow: var(--text-shadow-small-screens);
             transform: translateX(0) scale(1) !important;
@@ -208,32 +182,4 @@
 
     }
   }
-
 }
-
-//@media screen and (max-width: 1200px) {
-//  .container {
-//    .appNavBar {
-//      .navLogo {
-//        .icon {}
-//      }
-//      .navMenu {
-//        .zombieWrapper{
-//          div{
-//            svg{}
-//          }
-//        }
-//        .iconWrapper {}
-//        .settings {}
-//        .modal {
-//          &.open {
-//            a{}
-//          }
-//          a {}
-//        }
-//      }
-//
-//    }
-//  }
-//
-//}
