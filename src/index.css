@@ -1,0 +1,66 @@
+@import url('../src/fonts/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;700&display=swap');
+
+@font-face {
+    font-family: 'Cyborg';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../src/fonts/Cyborg.ttf) format('truetype');
+}
+
+body {
+    margin: 0;
+    background: var(--linear-gradient);
+    cursor: var(--cursor-default);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*::selection{
+    background: #14e957;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 700;
+}
+
+:root {
+    --green: #14e956;
+    --green-dark: #479087;
+    --white: #ffffff;
+    --grey-bg: #262626;
+    --font-size-title: 70px;
+    --font-size-medium: 32px;
+    --font-size-default: 16px;
+    --font-family: 'Cyborg', sans-serif;
+    --cursor-pointer: url('./icons/cursore-pointer.svg') 4 4, auto;
+    --cursor-default: url('./icons/cursore-default.svg') 4 4, auto;
+    --linear-gradient: linear-gradient(109.6deg, rgba(0, 0, 0, 1) 11.2%, rgb(7, 73, 80) 91.1%);
+    --radial-gradient: radial-gradient(circle 263px at 100.2% 3%, rgba(12, 85, 141, 1) 31.1%, rgba(205, 181, 93, 1) 36.4%, rgba(244, 102, 90, 1) 50.9%, rgba(199, 206, 187, 1) 60.7%, rgba(249, 140, 69, 1) 72.5%, rgba(12, 73, 116, 1) 72.6%);
+    --linear-gradient-reverse: linear-gradient(109.6deg, rgb(7, 73, 80) 11.2%, rgba(0, 0, 0, 1) 91.1%);
+    --text-shadow: 3px 3px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
+    --text-shadow-small-screens: 1px 1px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
+    --fz-title1200: 60px;
+    --fz-medium1200: 24px;
+    --fz-title900: 40px;
+    --fz-medium900: 18px;
+    --fz-default900: 14px;
+    --fz-title800: 32px;
+    --fz-medium800: 16px;
+    --fz-default800: 12px;
+    --fz-title650: 24px;
+    --fz-medium650: 14px;
+    --fz-default650: 10px;
+
+}
+
+

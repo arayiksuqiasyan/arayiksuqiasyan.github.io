@@ -1,0 +1,366 @@
+.container {
+  height: 100vh;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-80px);
+  justify-content: space-between;
+
+  .firstBlock {
+    width: 100%;
+    display: flex;
+    margin-top: 10rem;
+    align-items: center;
+    justify-content: flex-start;
+
+    .left {
+      width: 58%;
+      padding-left: 10%;
+
+      h1 {
+        line-height: 63px;
+        font-weight: bold;
+        user-select: none;
+        color: var(--green);
+        letter-spacing: 3px;
+        margin-bottom: 16px;
+        text-shadow: var(--text-shadow);
+        font-size: var(--font-size-title);
+      }
+
+      p {
+        color: var(--white);
+        letter-spacing: 1px;
+        text-shadow: var(--text-shadow);
+        font-size: var(--font-size-default);
+
+        &::selection {
+        }
+      }
+    }
+
+    .right {
+      width: 320px;
+      position: relative;
+
+      img {
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        position: sticky;
+        object-fit: contain;
+      }
+
+      .borderImg {
+        min-width: 100%;
+        height: 100%;
+        right: -22px;
+        bottom: -22px;
+        display: flex;
+        position: absolute;
+        align-items: flex-end;
+        justify-content: flex-end;
+        border: 2px double var(--white);
+
+        .progressY {
+          z-index: 1;
+          width: 6.5%;
+          position: absolute;
+          background: var(--green-dark);
+          box-shadow: var(--text-shadow);
+        }
+
+        .progressX {
+          transform: translateX(-5px);
+          height: 7%;
+          background: var(--green-dark);
+          box-shadow: var(--text-shadow);
+          //background: var(--white);
+        }
+      }
+
+      .dotsPurple {
+        right: -90px;
+        bottom: 20px;
+        fill: var(--green);
+        position: absolute;
+        stroke: var(--green);
+      }
+
+      .dotsGreen {
+        top: -105px;
+        width: 397px;
+        left: -220px;
+        height: 194px;
+        fill: var(--green);
+        position: absolute;
+        stroke: var(--green);
+      }
+
+      .zigzagPurple {
+        width: 70px;
+        height: 70px;
+        right: -150px;
+        bottom: 220px;
+        position: absolute;
+        stroke: var(--green);
+      }
+
+      .zigzagGreen {
+        left: -42px;
+        bottom: 118px;
+        position: absolute;
+        stroke: var(--green);
+        transform: rotate(45deg);
+      }
+
+      .zigzagGreen2 {
+        width: 70px;
+        height: 70px;
+        left: -110px;
+        bottom: 8px;
+        position: absolute;
+        stroke: var(--green);
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .subTitles {
+    display: grid;
+    margin-left: 10%;
+    margin-top: 200px;
+    width: fit-content;
+    color: var(--green);
+    grid-template-columns: repeat(2, 1fr);
+
+    span {
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-shadow: var(--text-shadow);
+      font-size: var(--font-size-default);
+    }
+
+    :last-child {
+      margin-left: 20px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .container {
+    justify-content: center;
+
+    .firstBlock {
+      .left {
+        h1 {
+          font-size: var(--fz-title1200);
+        }
+
+        p {
+        }
+      }
+
+      .right {
+        img {
+        }
+
+        .borderImg {
+          .progressY {
+          }
+
+          .progressX {
+          }
+        }
+
+        .dotsPurple {
+        }
+
+        .dotsGreen {
+        }
+
+        .zigzagPurple {
+        }
+
+        .zigzagGreen {
+        }
+
+        .zigzagGreen2 {
+        }
+      }
+    }
+
+    .subTitles {
+      span {
+      }
+
+      :last-child {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    .firstBlock {
+      .left {
+        h1 {
+          font-size: var(--fz-title900);
+          line-height: var(--fz-title900);
+        }
+
+        p {
+          font-size: var(--fz-default900);
+          line-height: 20px;
+        }
+      }
+
+      .right {
+        img {
+          transform: scale(1) !important;
+        }
+
+        .borderImg {
+          display: none;
+        }
+
+        .dotsPurple {
+        }
+
+        .dotsGreen {
+          transform: scale(0.8);
+        }
+
+        .zigzagPurple {
+          display: none;
+        }
+
+        .zigzagGreen {
+          display: none;
+        }
+
+        .zigzagGreen2 {
+          display: none;
+        }
+      }
+    }
+
+    .subTitles {
+      span {
+        font-size: var(--fz-default900);
+        line-height: 20px;
+      }
+
+      :last-child {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    .firstBlock {
+      .left {
+        h1 {
+          font-size: var(--fz-title650);
+          line-height: 24px;
+        }
+
+        p {
+          font-size: var(--fz-medium650);
+          line-height: 16px;
+        }
+      }
+      .right {
+        width: 200px;
+        transform: translateX(50px);
+
+        img {
+        }
+
+        .dotsGreen {
+          display: none;
+        }
+      }
+    }
+    .subTitles {
+      br{
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 431px) {
+  .container {
+    .firstBlock {
+      .left {
+        h1 {
+          text-shadow: var(--text-shadow-small-screens);
+        }
+        p {
+          text-shadow: var(--text-shadow-small-screens);
+        }
+      }
+
+      .right {
+        img {
+          width: 160px;
+        }
+
+        .borderImg {
+          .progressY{}
+          .progressX{}
+        }
+
+        .dotsPurple {
+          top: -40px;
+          right: -40px;
+        }
+        .dotsGreen {}
+        .zigzagPurple {}
+        .zigzagGreen {}
+        .zigzagGreen2 {}
+      }
+    }
+
+    .subTitles {
+      span {
+        text-shadow: var(--text-shadow-small-screens);
+      }
+      :last-child {}
+    }
+  }
+}
+
+//@media screen and (max-width: 1200px) {
+//  .container {
+//    .firstBlock {
+//      .left {
+//        h1 {}
+//        p {}
+//      }
+//
+//      .right {
+//        img {}
+//
+//        .borderImg {
+//          .progressY{}
+//          .progressX{}
+//        }
+//
+//        .dotsPurple {}
+//        .dotsGreen {}
+//        .zigzagPurple {}
+//        .zigzagGreen {}
+//        .zigzagGreen2 {}
+//      }
+//    }
+//
+//    .subTitles {
+//      span {}
+//      :last-child {}
+//    }
+//  }
+//}

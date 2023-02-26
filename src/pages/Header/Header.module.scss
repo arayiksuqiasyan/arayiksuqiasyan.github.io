@@ -1,0 +1,239 @@
+.container {
+  width: 100%;
+  z-index: 3;
+  position: fixed;
+  padding: 50px 80px;
+  .appNavBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navLogo {
+      animation: rotate 5s linear infinite;
+
+      .icon {
+        color: var(--green);
+        font-size: 60px;
+      }
+    }
+
+    .navMenu {
+      position: relative;
+
+      .zombieWrapper{
+        display: flex;
+        align-items: flex-start;
+        div{
+          margin-right: 8px;
+          svg{
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+
+      .iconWrapper {
+        z-index: 1;
+        display: flex;
+        margin-top: 3px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        cursor: var(--cursor-pointer);
+      }
+
+      .settings {
+        font-size: 20px;
+        color: var(--green);
+        display: inline-block;
+        text-shadow: var(--text-shadow);
+        transition: 0.3s all ease-in-out;
+      }
+
+      .modal {
+        opacity: 0;
+        top: -10px;
+        width: 300px;
+        right: -10px;
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        transform: scale(0);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 45px 30px 30px;
+        transition: 0.4s all ease;
+        background: var(--grey-bg);
+        transform-origin: top right;
+        box-shadow: 3px 3px 0 #000000, -1px -1px 0 #000000,
+        1px -1px 0 #000000, -1px 1px 0 #1f2127,
+        1px 1px 0 #000000;
+
+        &.open {
+          opacity: 1;
+          transform: scale(1);
+
+          a{
+            font-weight: 400;
+            animation: textModal 0.4s linear;
+          }
+        }
+
+        a {
+          display: flex;
+          padding: 0 10px;
+          list-style: none;
+          min-height: 40px;
+          border-radius: 2px;
+          margin-bottom: 6px;
+          align-items: center;
+          color: var(--green);
+          text-decoration: none;
+          width: calc(100% + 20px);
+          background: var(--grey-bg);
+          cursor: var(--cursor-pointer);
+          text-shadow: var(--text-shadow);
+          transform: translateX(-10px) scale(1);
+          transition: 0.3s all cubic-bezier(.49,.66,.99,.27);
+
+          &:hover {
+            color: var(--white);
+            background: var(--green);
+            transform: scale(1.1) translateX(-10px);
+          }
+        }
+
+
+      }
+    }
+
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes textModal {
+  0%{
+    transform: translateY(100%) translateX(-10px);
+  }
+  50%{
+    transform: translateY(50%) translateX(-10px);
+  }
+  100%{
+    transform: translateY(0) translateX(-10px);
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    .appNavBar {
+      .navLogo {
+        .icon {}
+      }
+      .navMenu {
+        .zombieWrapper{
+          div{
+            svg{}
+          }
+        }
+        .iconWrapper {}
+        .settings {}
+        .modal {
+          &.open {
+            a{}
+          }
+          a {}
+        }
+      }
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 431px) {
+  .container {
+    padding: 16px 20px;
+    .appNavBar {
+      .navLogo {
+        .icon {}
+      }
+      .navMenu {
+        .zombieWrapper{
+          div{
+            svg{}
+          }
+        }
+        .iconWrapper {}
+        .settings {
+          font-size: 8px;
+          margin-right: -8px;
+          margin-top: -6px;
+          text-shadow: var(--text-shadow-small-screens);
+          &:before{
+
+          }
+        }
+        .modal {
+          width: 160px;
+          padding: 30px 8px 16px;
+          &.open {
+            a{
+              font-size: 10px;
+              width: 100%;
+              height: fit-content;
+              min-height: inherit;
+              padding: 8px;
+            }
+          }
+          a {
+            text-shadow: var(--text-shadow-small-screens);
+            transform: translateX(0) scale(1) !important;
+            font-size: 10px;
+            width: 100%;
+            height: fit-content;
+            min-height: inherit;
+            padding: 8px;
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+//@media screen and (max-width: 1200px) {
+//  .container {
+//    .appNavBar {
+//      .navLogo {
+//        .icon {}
+//      }
+//      .navMenu {
+//        .zombieWrapper{
+//          div{
+//            svg{}
+//          }
+//        }
+//        .iconWrapper {}
+//        .settings {}
+//        .modal {
+//          &.open {
+//            a{}
+//          }
+//          a {}
+//        }
+//      }
+//
+//    }
+//  }
+//
+//}
