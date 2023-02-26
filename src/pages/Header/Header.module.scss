@@ -78,7 +78,6 @@
 
           a {
             font-weight: 400;
-            animation: textModal 0.4s linear;
           }
         }
 
@@ -169,7 +168,6 @@
           }
 
           a {
-            animation: inherit;
             text-shadow: var(--text-shadow-small-screens);
             transform: translateX(0) scale(1) !important;
             font-size: 10px;
