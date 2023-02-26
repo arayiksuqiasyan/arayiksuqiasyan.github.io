@@ -54,6 +54,7 @@
       }
 
       .modal {
+        z-index: 99;
         opacity: 0;
         top: -10px;
         width: 300px;
