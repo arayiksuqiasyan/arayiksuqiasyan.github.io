@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cf686905.css",
+    "main.js": "/static/js/main.16dd2ff1.js",
+    "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "static/media/gallery.png": "/static/media/gallery.64a355e544ca951a6597.png",
+    "static/media/slider.png": "/static/media/slider.f502657c803a97f7fe85.png",
+    "static/media/suffix-tree.png": "/static/media/suffix-tree.2d9c7fca3d7a84226893.png",
+    "static/media/board.png": "/static/media/board.506258e58501175ded88.png",
+    "static/media/sezameScreen.png": "/static/media/sezameScreen.cf4cd6d4e3162ab7c95a.png",
+    "static/media/poekapi.png": "/static/media/poekapi.917116d00355fd8e39e9.png",
+    "static/media/inKinScreen.png": "/static/media/inKinScreen.f1913d9b20070c856a28.png",
+    "static/media/pokemon.png": "/static/media/pokemon.64529db3231f3c931df8.png",
+    "static/media/truckInDigitalscreen.png": "/static/media/truckInDigitalscreen.f5383d25bf8940b17d2c.png",
+    "static/media/classTodo.png": "/static/media/classTodo.4898bec00a2cca3b0e1c.png",
+    "static/media/airdropScreen.png": "/static/media/airdropScreen.69a1e9c10bcb6825d9aa.png",
+    "static/media/moneyRt.png": "/static/media/moneyRt.1e6ecb19300bd335bbdd.png",
+    "static/media/closeSound.wav": "/static/media/closeSound.6e843f90bbce71642f55.wav",
+    "static/media/drag.png": "/static/media/drag.c2ac0a343e4ba0b0dccb.png",
+    "static/media/file-system.png": "/static/media/file-system.09c4dde1796465426007.png",
+    "static/media/avatar.jpg": "/static/media/avatar.6da72aab3bcb372294b3.jpg",
+    "static/media/dust2.png": "/static/media/dust2.1d3e3f78774816f493f6.png",
+    "static/media/drags.mp3": "/static/media/drags.26142caae959769f975c.mp3",
+    "static/media/Cyborg.ttf": "/static/media/Cyborg.074aa61276a2a2f121a4.ttf",
+    "static/media/cursore-pointer.svg": "/static/media/cursore-pointer.0be56047daef45a1b39b.svg",
+    "static/media/dots.svg": "/static/media/dots.7667ae9b10c659a97257f0166bcf9b03.svg",
+    "static/media/icomoon.svg?6eqnzl": "/static/media/icomoon.dd086569aa7bed4e2f47.svg",
+    "static/media/icomoon.eot?6eqnzl": "/static/media/icomoon.56ffea42f2234bd26bd2.eot",
+    "static/media/icomoon.woff?6eqnzl": "/static/media/icomoon.ed50d8514f9e9016e0c9.woff",
+    "static/media/icomoon.ttf?6eqnzl": "/static/media/icomoon.d2f0d77167c087f5e374.ttf",
+    "static/media/cursore-default.svg": "/static/media/cursore-default.b7f99f3e757235445a55.svg",
+    "index.html": "/index.html",
+    "static/media/dotes-line.svg": "/static/media/dotes-line.fd3bbc83a5d444d6ffd559e2777d9999.svg",
+    "static/media/zig-zag.svg": "/static/media/zig-zag.203982c0a94e39ff49250c1ecc1b8435.svg",
+    "main.cf686905.css.map": "/static/css/main.cf686905.css.map",
+    "main.16dd2ff1.js.map": "/static/js/main.16dd2ff1.js.map",
+    "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf686905.css",
+    "static/js/main.16dd2ff1.js"
+  ]
+}

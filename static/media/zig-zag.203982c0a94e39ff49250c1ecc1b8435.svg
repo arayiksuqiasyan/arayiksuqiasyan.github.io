@@ -1,0 +1,12 @@
+<svg
+    stroke="#4831d4"
+    xmlns="http://www.w3.org/2000/svg"
+    width="88px"
+    height="88px"
+    viewBox="0 1 88 88"
+    id="avatar-shapes"
+    data-shape="true"
+>
+    <path fill="none" stroke-miterlimit="50" stroke-width="2"
+          d="m 0 87.36 v 0 l 22.258 0.562 v 0 l -0.56 -22.26 v 0 l 22.258 0.56 v 0 l -0.56 -22.258 v 0 l 22.259 0.56 v 0 l -0.56 -22.257 v 0 l 22.26 0.559 v 0 l -0.56 -22.26 v 0"/>
+</svg>
