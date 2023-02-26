@@ -52,10 +52,9 @@ export const Header = () => {
     }, [])
 
     useEffect(() => {
-        window.innerWidth > 431 && window.addEventListener('click', onClickWindowHandler)
-
+        window.addEventListener('click', onClickWindowHandler)
         return () => {
-            window.innerWidth > 431 && window?.removeEventListener('click', onClickWindowHandler)
+            window?.removeEventListener('click', onClickWindowHandler)
         }
     }, [onClickWindowHandler])
 
