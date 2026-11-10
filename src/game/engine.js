@@ -543,6 +543,15 @@ export class GameEngine {
         window.addEventListener('contextmenu', this.onClick, true)
         window.addEventListener('resize', this.onResize)
         window.addEventListener('blur', this.onBlur)
+        // iPhone Safari can still zoom on a quick double tap: swallow the second tap while playing
+        this.onTouchEnd = e => {
+            const now = performance.now()
+            if (now - (this.lastTouchEnd || 0) < 320 && e.cancelable) e.preventDefault()
+            this.lastTouchEnd = now
+        }
+        this.onDblClick = e => e.preventDefault()
+        document.addEventListener('touchend', this.onTouchEnd, {passive: false})
+        document.addEventListener('dblclick', this.onDblClick, {passive: false})
         window.addEventListener('focus', this.onFocus)
         document.addEventListener('visibilitychange', this.onVis)
     }
@@ -2622,6 +2631,8 @@ export class GameEngine {
         clearTimeout(this.saveTimer)
         if (this.progress) this.saveProgress()
         window.removeEventListener('focus', this.onFocus)
+        document.removeEventListener('touchend', this.onTouchEnd)
+        document.removeEventListener('dblclick', this.onDblClick)
         this.removeAlly && this.removeAlly()
         if (this.sfx) this.sfx.dispose()
         cancelAnimationFrame(this.raf)

@@ -1,3 +1,8 @@
+/* no double-tap zoom anywhere (taps, buttons and scrolling still work) */
+html, body, button, a {
+  touch-action: manipulation;
+}
+
 @import url('../src/fonts/style.css');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap');
 
