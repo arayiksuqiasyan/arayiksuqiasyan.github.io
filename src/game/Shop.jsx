@@ -120,7 +120,7 @@ export default function Shop({engine, onPlay, playLabel = 'Play', onExit}) {
             </div>
             <div className="shop-foot">
                 <p className="shop-note">Pick your gear here — Play starts a new run with it.</p>
-                <button type="button" className="btn shop-play" onClick={onPlay}>▶ {playLabel}</button>
+                <button type="button" className="btn shop-play" onClick={onPlay}><GameIcon name="play" size={16}/> {playLabel}</button>
             </div>
         </div>
     )

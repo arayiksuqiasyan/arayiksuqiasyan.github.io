@@ -917,6 +917,10 @@ html.game-on {
   flex: 0 0 auto;
   min-width: 140px;
   font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .shop-empty,
