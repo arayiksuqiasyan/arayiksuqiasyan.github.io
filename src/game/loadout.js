@@ -432,11 +432,10 @@ export const loadoutMethods = {
             // the Gunslinger can't use melee weapons: his dual pistols take that tab
             // hero and melee are separate things: the melee list (with its upgrades) is always there;
             // the Gunslinger just gets his dual pistols on top of it
-            // Ferrum fights with his metal only: the melee tab shows just his Iron Blades, the guns are locked
-            melee: this.isMetal && this.isMetal() ? [this.ferrumShopItem()] : [
-                ...(this.isDual && this.isDual() ? [this.pistolShopItem()] : []),
-                ...Object.entries(MELEE).map(([id, d]) => item(id, d, d.price, 'melee')),
-            ],
+            // heroes with a kit of their own see only it: Ferrum his Iron Blades, the Gunslinger his dual pistols
+            melee: this.isMetal && this.isMetal() ? [this.ferrumShopItem()]
+                : this.isDual && this.isDual() ? [this.pistolShopItem()]
+                    : Object.entries(MELEE).map(([id, d]) => item(id, d, d.price, 'melee')),
             locked: this.isMetal && this.isMetal() ? {gun: 'Ferrum fights with metal only — guns are locked while he is your hero.'} : {},
             gun: this.isMetal && this.isMetal() ? [] : WEAPON_ORDER.map(id => item(id, WEAPONS[id], GUN_PRICE[id], 'gun')),
             hero: Object.entries(HEROES).map(([id, d]) => ({...item(id, d, d.price, 'hero'), upgrade: null})),

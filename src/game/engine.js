@@ -127,6 +127,9 @@ export class GameEngine {
         this.bossSpawned = false
         this.sfx = new Sfx()
         if (process.env.NODE_ENV === 'development') window.__game = this
+        // phones and tablets: one button for the melee blow, the gun fires by itself
+        this.touchDevice = typeof window !== 'undefined' &&
+            ((window.matchMedia && window.matchMedia('(pointer: coarse)').matches) || /[?&]touch=1/.test(window.location.search))
     }
 
     // ------------------------------------------------------------------ setup
@@ -789,6 +792,7 @@ export class GameEngine {
             best: this.stats.best,
             power: Math.round(this.stats.power),
             dual: this.isDual(),
+            autoCombat: !!this.autoCombat,
             metal: this.isMetal(),
             dash: this.dashCd > 0 ? 1 - this.dashCd / this.dashStats().cd : 1,
             dashCharges: this.dashCharges === undefined ? this.dashStats().charges : this.dashCharges,
@@ -885,10 +889,12 @@ export class GameEngine {
             }
 
             // attacks
+            // touch devices: attack / shoot by themselves when a monster is close enough
+            this.updateAutoCombat(canAct)
             // the Gunslinger has no melee: his dual pistols fire on the attack button
             if (this.isDual()) this.updatePistols(dt, canAct)
             this.updateFerrum(dt, canAct)
-            const wantAttack = !this.customKit() && (I.attack || (this.attackPressedAt >= 0 && this.time - this.attackPressedAt < 0.2))
+            const wantAttack = !this.customKit() && (this.wantsAttack() || (this.attackPressedAt >= 0 && this.time - this.attackPressedAt < 0.2))
             if (p.attack) {
                 p.attack.t += dt
                 const a = p.attack
@@ -1061,6 +1067,37 @@ export class GameEngine {
             p.dash = {t: 0.2, v: p.facing * 1350, hit: new Set()}
             p.inv = Math.max(p.inv, 0.3)
             this.flash(p.x, p.y - this.playerH * 0.5, 0x22d3ee, 70, 0.22)
+        }
+    }
+
+    // ---- auto combat (touch devices)
+    wantsAttack() {
+        return this.input.attack || !!this.autoAttack
+    }
+
+    wantsShoot() {
+        return this.input.shoot || !!this.autoShoot
+    }
+
+    updateAutoCombat(canAct) {
+        this.autoAttack = false
+        this.autoShoot = false
+        this.autoCombat = !!this.touchDevice
+        const p = this.player
+        if (!this.autoCombat || !canAct || !p || p.dead) return
+        const H = this.playerH
+        // the gun fires by itself at anything in its sights (Ferrum's K is his pulse: fire it when crowded)
+        if (this.isMetal()) {
+            let crowd = 0
+            for (const b of this.bugs) if (!b.dead && Math.hypot(b.x - p.x, b.y - p.y) < H * 2) crowd++
+            this.autoShoot = crowd >= 3
+        } else {
+            // only with ammo in the gun (no "NO SHELLS" spam while running around)
+            const W = WEAPONS[this.weapon]
+            const loaded = (this.infiniteAmmo && this.infiniteAmmo()) || (W && this.stats.ammo >= W.cost)
+            const [mx, my] = this.muzzlePos()
+            // any monster in range, in any direction (the gun turns the hero around by itself)
+            this.autoShoot = !!loaded && !!this.findTarget(mx, my)
         }
     }
 

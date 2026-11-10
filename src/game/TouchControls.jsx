@@ -22,21 +22,32 @@ const ICONS = {
     ability: ['M12 2l2.9 6.9L22 10l-5.5 4.8L18 22l-6-3.6L6 22l1.5-7.2L2 10l7.1-1.1z'],
 }
 
+// every button owns its own finger (pointer capture): it stays pressed while that finger is down,
+// even if it slides a bit — so several buttons, and the joystick, work at the same time
 const Btn = ({engine, name, className = '', children, label}) => {
-    const set = down => e => {
+    const fingers = useRef(new Set())
+    const down = e => {
         e.preventDefault()
         e.stopPropagation()
-        engine.current && engine.current.press(name, down)
+        try { e.currentTarget.setPointerCapture(e.pointerId) } catch (err) { /* not supported */ }
+        if (!fingers.current.size) engine.current && engine.current.press(name, true)
+        fingers.current.add(e.pointerId)
+    }
+    const up = e => {
+        e.preventDefault()
+        e.stopPropagation()
+        fingers.current.delete(e.pointerId)
+        if (!fingers.current.size) engine.current && engine.current.press(name, false)
     }
     return (
         <button
             type="button"
             aria-label={label || name}
             className={`tc-btn tc-${name} ${className}`}
-            onPointerDown={set(true)}
-            onPointerUp={set(false)}
-            onPointerLeave={set(false)}
-            onPointerCancel={set(false)}
+            onPointerDown={down}
+            onPointerUp={up}
+            onPointerCancel={up}
+            onLostPointerCapture={up}
             onContextMenu={e => e.preventDefault()}
         >
             {children}
@@ -115,7 +126,7 @@ export default function TouchControls({engine, hud}) {
             </div>
             <div className="tc-actions">
                 <Btn engine={engine} name="attack" label="Sword"><Icon d={ICONS.sword}/></Btn>
-                <Btn engine={engine} name="shoot" label="Shoot" className={hud.infinite || (hud.ammo || 0) >= ((hud.gun && hud.gun.cost) || 1) ? '' : 'is-empty'}><Icon d={ICONS.shoot}/></Btn>
+                {/* no shoot button: on touch screens the gun fires by itself */}
                 <Btn engine={engine} name="jump" label="Jump"><Icon d={ICONS.jump}/></Btn>
                 <Btn engine={engine} name="dash" label="Dash"><Icon d={ICONS.dash}/></Btn>
                 {hud.superOn !== false && (

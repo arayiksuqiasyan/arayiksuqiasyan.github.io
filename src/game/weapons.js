@@ -211,7 +211,7 @@ export const weaponMethods = {
         if (s.pulse) s.obj.scale.setScalar(s.obj.userData.base || (s.obj.userData.base = s.obj.scale.x))
         if (s.pulse) s.obj.scale.multiplyScalar(1 + Math.sin(this.time * 18) * 0.25)
         if (s.axis === 'x') {
-            const firing = this.input.shoot && !this.overheated && (this.stats.ammo > 0 || this.infiniteAmmo())
+            const firing = this.wantsShoot() && !this.overheated && (this.stats.ammo > 0 || this.infiniteAmmo())
             s.speed = (s.speed || 0) + ((firing ? 30 : 0) - (s.speed || 0)) * Math.min(1, dt * 4)
             s.obj.rotation.x += s.speed * dt
         }
@@ -224,12 +224,12 @@ export const weaponMethods = {
         const p = this.player
         p.fireCd = Math.max(0, (p.fireCd || 0) - dt)
         // overheating guns cool down all the time; an overheated gun waits until it is cool again
-        this.heat = Math.max(0, (this.heat || 0) - dt * (this.input.shoot && !this.overheated ? 0.1 : 0.5))
+        this.heat = Math.max(0, (this.heat || 0) - dt * (this.wantsShoot() && !this.overheated ? 0.1 : 0.5))
         if (this.overheated && this.heat < 0.3) {
             this.overheated = false
             this.emitHud(true)
         }
-        if (!this.input.shoot || p.dead || !canAct) {
+        if (!this.wantsShoot() || p.dead || !canAct) {
             this.shootHeld = false
             return
         }

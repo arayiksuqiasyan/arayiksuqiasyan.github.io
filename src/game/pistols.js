@@ -131,7 +131,7 @@ export const pistolMethods = {
             P.l.holder.visible = firing
             if (this.gun) this.gun.visible = !firing
         }
-        if (!this.input.attack || !canAct || p.dead || this.pistolCd > 0) return
+        if (!this.wantsAttack() || !canAct || p.dead || this.pistolCd > 0) return
         const S = this.pistolStats()
         const storm = this.ab && this.ab.active > 0
         this.pistolCd = S.rate / (storm ? 3 : 1)

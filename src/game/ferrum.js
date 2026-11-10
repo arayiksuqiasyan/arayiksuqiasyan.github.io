@@ -209,7 +209,7 @@ export const ferrumMethods = {
         this.pulseCd = Math.max(0, (this.pulseCd || 0) - dt)
         const orbiting = this.blades.filter(b => b.state === 'orbit')
         // ---- attack: send the next blade
-        if (canAct && !p.dead && this.input.attack && this.bladeCd <= 0 && orbiting.length) {
+        if (canAct && !p.dead && this.wantsAttack() && this.bladeCd <= 0 && orbiting.length) {
             const target = this.ferrumTarget(cx, cy, 700 * S.range, p.facing)
             const bl = orbiting[0]
             const tx = target ? target.x : cx + p.facing * 600
@@ -230,7 +230,7 @@ export const ferrumMethods = {
             this.sfx && this.sfx.play('swish', {volume: 0.5})
         }
         // ---- K: magnetic pulse
-        if (canAct && !p.dead && this.input.shoot && this.pulseCd <= 0) this.magneticPulse(S)
+        if (canAct && !p.dead && this.wantsShoot() && this.pulseCd <= 0) this.magneticPulse(S)
         // ---- blades
         let oi = 0
         const n = Math.max(1, orbiting.length)

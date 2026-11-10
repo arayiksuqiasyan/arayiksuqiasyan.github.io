@@ -1854,3 +1854,19 @@ html.game-on .game-hud {
   opacity: 0.45;
   text-decoration: line-through;
 }
+
+
+// multi-touch: no browser gestures (zoom, selection, long-press menu) on the controls,
+// so the joystick and several buttons can be held at once
+.tc, .tc * {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+// while playing, the page itself ignores pinch-zoom / pull-to-refresh gestures
+html.game-on, html.game-on body {
+  touch-action: none;
+  overscroll-behavior: none;
+}
