@@ -2035,6 +2035,8 @@ export class GameEngine {
 
     // ------------------------------------------------------------------ skill tokens
     dropToken(x, y, kind = 'skill', vy, persist = false) {
+        // no ammo boxes when the gun never runs dry (infinite ammo) or the hero has no gun at all (Ferrum)
+        if (kind === 'ammo' && ((this.infiniteAmmo && this.progress && this.weapon && this.infiniteAmmo()) || (this.isMetal && this.progress && this.isMetal()))) return null
         // never more than two hearts / armor plates lying around at once
         if ((kind === 'heart' || kind === 'armor') && (this.tokens || []).filter(t => t.kind === 'heart' || t.kind === 'armor').length >= 2) return null
         const node = document.createElement('span')
