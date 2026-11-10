@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# local data for Claude, do not publish
+PROFILE.md
+
+# raw Mixamo downloads (converted copies go to public/)
+game-assets/
+
+# raw screenshots and IDE settings (not part of the site)
+portfolio-screenshots/
+.idea/

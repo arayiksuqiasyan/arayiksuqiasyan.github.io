@@ -1,65 +1,92 @@
 @import url('../src/fonts/style.css');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap');
 
 @font-face {
     font-family: 'Cyborg';
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: url(../src/fonts/Cyborg.ttf) format('truetype');
 }
 
-body {
-    margin: 0;
-    background: var(--linear-gradient);
-    cursor: var(--cursor-default);
-    font-family: var(--font-family);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-*::selection{
-    background: #14e957;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --bg: #05070a;
+    --bg-soft: #0a0f14;
+    --surface: rgba(14, 22, 28, 0.55);
+    --surface-strong: rgba(14, 22, 28, 0.85);
+    /* accent palette — switched by [data-theme] (the game level picks one of 5 themes) */
+    --accent-rgb: 20, 233, 86;
+    --accent2-rgb: 34, 211, 238;
+    --green: rgb(var(--accent-rgb));
+    --cyan: rgb(var(--accent2-rgb));
+    --border: rgba(var(--accent-rgb), 0.14);
+    --border-strong: rgba(var(--accent-rgb), 0.45);
+    --text: #e6f1ee;
+    --muted: #8ea8a1;
+    --gradient: linear-gradient(100deg, var(--green) 0%, var(--cyan) 100%);
+    --display: 'Cyborg', sans-serif;
+    --body: 'Barlow', system-ui, sans-serif;
+    --radius: 20px;
+    --gutter: clamp(16px, 5vw, 80px);
+    --max: 1200px;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: 700;
 }
 
-:root {
-    --fz-title1200: 60px;
-    --fz-medium1200: 24px;
-    --fz-title900: 40px;
-    --fz-medium900: 18px;
-    --fz-default900: 14px;
-    --fz-title800: 32px;
-    --fz-medium800: 16px;
-    --fz-default800: 12px;
-    --fz-title650: 24px;
-    --fz-medium650: 14px;
-    --fz-default650: 10px;
-    --font-size-title: 70px;
-    --font-size-medium: 32px;
-    --font-size-default: 16px;
-    --green: #14e956;
-    --green-dark: #479087;
-    --white: #ffffff;
-    --grey-bg: #262626;
-    --font-family: 'Cyborg', sans-serif;
-    --cursor-pointer: url('./icons/cursore-pointer.svg') 4 4, auto;
-    --cursor-default: url('./icons/cursore-default.svg') 4 4, auto;
-    --linear-gradient: linear-gradient(109.6deg, rgba(0, 0, 0, 1) 11.2%, rgb(7, 73, 80) 91.1%);
-    --radial-gradient: radial-gradient(circle 263px at 100.2% 3%, rgba(12, 85, 141, 1) 31.1%, rgba(205, 181, 93, 1) 36.4%, rgba(244, 102, 90, 1) 50.9%, rgba(199, 206, 187, 1) 60.7%, rgba(249, 140, 69, 1) 72.5%, rgba(12, 73, 116, 1) 72.6%);
-    --linear-gradient-reverse: linear-gradient(109.6deg, rgb(7, 73, 80) 11.2%, rgba(0, 0, 0, 1) 91.1%);
-    --text-shadow: 3px 3px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
-    --text-shadow-small-screens: 1px 1px 0 #383c46, -1px -1px 0 #383c46, 1px -1px 0 #383c46, -1px 1px 0 #383c46, 1px 1px 0 #1f2127;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
+::selection {
+    background: var(--green);
+    color: var(--bg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* 5 colour themes (level 1 → 5, then again) */
+:root[data-theme="2"] { --accent-rgb: 249, 115, 22; --accent2-rgb: 250, 204, 21; --muted: #a8998e; }
+:root[data-theme="3"] { --accent-rgb: 168, 85, 247; --accent2-rgb: 236, 72, 153; --muted: #a39ab3; }
+:root[data-theme="4"] { --accent-rgb: 59, 130, 246; --accent2-rgb: 34, 211, 238; --muted: #93a3b8; }
+:root[data-theme="5"] { --accent-rgb: 239, 68, 68; --accent2-rgb: 245, 158, 11; --muted: #b39a9a; }
