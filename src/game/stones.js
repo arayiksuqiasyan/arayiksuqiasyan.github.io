@@ -135,7 +135,7 @@ export const stoneMethods = {
         // loot on the ledges
         for (const s of stones) {
             const r = Math.random()
-            const kind = r < 0.05 ? 'heart' : r < 0.15 ? 'ammo' : r < 0.21 ? 'armor' : null
+            const kind = r < 0.02 ? 'heart' : r < 0.12 ? 'ammo' : r < 0.15 ? 'armor' : null
             if (kind) this.placeToken(rand(s.l + 24, s.r - 24), s, kind)
         }
     },

@@ -1963,7 +1963,7 @@ export class GameEngine {
         if (b.elite) {
             coins *= 4
             this.floatText(b.x, b.y - b.size - 30, 'ELITE DOWN', 'combo')
-            this.dropToken(b.x, b.y - b.size * 0.6, Math.random() < 0.5 ? 'heart' : 'armor')
+            if (Math.random() < 0.35) this.dropToken(b.x, b.y - b.size * 0.6, Math.random() < 0.5 ? 'heart' : 'armor')
         }
         coins *= this.coinMult()
         this.addCoins(coins)
@@ -1979,9 +1979,10 @@ export class GameEngine {
         s.score += pts
         this.floatText(b.x, b.y - b.size, `+${pts}`, mult > 1 ? 'hot' : '')
         if (s.combo > 0 && s.combo % 10 === 0) this.floatText(b.x, b.y - b.size - 34, `COMBO x${s.combo}`, 'combo')
-        const heartChance = b.type === 'tank' ? 0.12 : 0.02
+        // hearts and armor are rare: they should feel like a lucky find, not rain from the sky
+        const heartChance = b.type === 'tank' ? 0.05 : 0.008
         const ammoChance = b.type === 'sentinel' ? 0.3 : 0.04
-        const armorChance = b.type === 'tank' || b.type === 'sentinel' ? 0.1 : 0.025
+        const armorChance = b.type === 'tank' || b.type === 'sentinel' ? 0.04 : 0.01
         const r = Math.random()
         if (!big && r < heartChance) this.dropToken(b.x, b.y - b.size * 0.6, 'heart')
         else if (!big && r < heartChance + armorChance) this.dropToken(b.x, b.y - b.size * 0.6, 'armor')
@@ -2034,6 +2035,8 @@ export class GameEngine {
 
     // ------------------------------------------------------------------ skill tokens
     dropToken(x, y, kind = 'skill', vy, persist = false) {
+        // never more than two hearts / armor plates lying around at once
+        if ((kind === 'heart' || kind === 'armor') && (this.tokens || []).filter(t => t.kind === 'heart' || t.kind === 'armor').length >= 2) return null
         const node = document.createElement('span')
         node.className = `game-token game-token--${kind}`
         if (kind === 'heart') node.textContent = '❤'
@@ -2052,6 +2055,7 @@ export class GameEngine {
     // loot resting on a stone ledge from the start
     placeToken(x, ledge, kind) {
         const tok = this.dropToken(x, ledge.t, kind, 0, true)
+        if (!tok) return
         tok.onGround = true
         tok.ground = ledge
     }
